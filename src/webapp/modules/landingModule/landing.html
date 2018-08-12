@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <span>{{'pageHeader' | translate}}</span>
+    </div>
+    <div>
+        <button *ngIf="language !== 'fr'" (click)="changeLanguage('fr')">Français</button>
+        <button *ngIf="language !== 'en'" (click)="changeLanguage('en')">English</button>
+    </div>
+</div>

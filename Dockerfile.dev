@@ -3,19 +3,20 @@ FROM node:8
 # Create app directory
 WORKDIR /usr/src/app
 
-ENV PORT 8000
+ENV PORT 8081
 ENV SSL false
 
 # Install app dependencies
-COPY . ./
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available 
+COPY package*.json ./
+COPY tsconfig.json ./
+COPY webpack.config.js ./
 
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
-# Bundle app source
-#COPY . .
-
 EXPOSE 8000
 
-CMD npm run build && npm run prod-start
+CMD npm run dev-start
