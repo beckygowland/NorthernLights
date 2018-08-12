@@ -1,9 +1,5 @@
-FROM python:2.7
-
-# Add sample application
-ADD application.py /tmp/application.py
-
+FROM node:4.2
+COPY . /src
+RUN cd /src && npm install
 EXPOSE 8000
-
-# Run it
-ENTRYPOINT ["python", "/tmp/application.py"]
+CMD ["node", "/src/server.js"]
