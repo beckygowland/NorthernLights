@@ -2,7 +2,6 @@
   "name": "docker-test",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "scripts": {
     "build": "webpack",
     "dev-start": "concurrently \"npm run watch:webapp\" \"npm run watch:server\" ",
@@ -10,7 +9,7 @@
     "watch:server": "nodemon -L --watch ./src/server -e ts,tsx --exec 'ts-node' -P ./tsconfig.json ./src/server/server.ts",
     "watch:webapp": "webpack --watch"
   },
-  "author": "Dana Woodman <dana@danawoodman.com> (http://danawoodman.com/)",
+  "author": "Rebecca Gowland (bcekygowland@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "concurrently": "3.6.0",
@@ -22,6 +21,7 @@
     "@angular/common": "6.1.0",
     "@angular/compiler": "6.1.0",
     "@angular/core": "6.1.0",
+    "@angular/router": "6.1.0",
     "@angular/platform-browser": "6.1.0",
     "@angular/flex-layout": "6.0.0-beta.17",
     "@angular/platform-browser-dynamic": "6.1.0",
@@ -60,7 +60,6 @@
     "sass-loader": "7.0.3",
     "ng-recaptcha": "3.0.5",
     "ts-node": "3.3.0",
-    "tslint": "5.7.0",
     "typescript": "2.9.2",
     "koa": "2.5.2",
     "koa-render": "0.2.1",
@@ -71,7 +70,6 @@
     "copy-webpack-plugin": "4.3.1",
     "validate": "4.4.1",
     "webpack": "3.10.0",
-    "winston": "3.0.0",
-    "aws-sdk": "latest"
+    "winston": "3.0.0"
   }
 }

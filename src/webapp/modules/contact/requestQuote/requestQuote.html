@@ -1,0 +1,49 @@
+<div fxLayout="row">
+    <div fxLayout="column" fxFlex="20%">
+        <h3>Categories</h3>
+        <span (click)="changeProduct('nutrient')">Advanced Nutrients</span>
+        <span (click)="changeProduct('shatter')">Shatterizers</span>
+    </div>
+    <div fxLayout="column" fxLayoutGap="30px"  fxLayoutAlign="center center" fxFlex="50%">
+        <h3 *ngIf="product === 'nutrient'">Products: Advanced Nutrients</h3>
+        <div fxLayout="row wrap" *ngIf="product === 'nutrient'" fxLayoutGap="30px" fxLayoutAlign="start start">
+            <div fxLayout="column" *ngFor="let item of nutrientProducts" style="width:175px"> 
+                    <img [src]="item.imageUrl" alt="logo" height="175" width="175">
+                    <p>{{item.name}}</p>
+                    <mat-form-field fxFlex="100%">
+                        <mat-label>{{'Quantity' | translate}}</mat-label>
+                        <input matInput type="number" name="quantity" [(ngModel)]="item.quantity" (input)="addToQuoteList(item)">
+                    </mat-form-field>
+                    <span>{{item.description}}</span>
+                </div>
+            </div>
+            <h3 *ngIf="product === 'shatter'">Products: Shatterizers</h3>
+            <div fxLayout="row wrap" *ngIf="product === 'shatter'" fxLayoutGap="30px" fxLayoutAlign="start start">
+                <div fxLayout="column" *ngFor="let shatterItem of shatterProducts" style="width:175px"> 
+                <img [src]="shatterItem.imageUrl" alt="logo" height="175" width="175">
+                <p>{{shatterItem.name}}</p>
+                <mat-form-field fxFlex="100%">
+                    <mat-label>{{'Quantity' | translate}}</mat-label>
+                    <input matInput name="quantity" type="number" [(ngModel)]="shatterItem.quantity">
+                </mat-form-field>
+                <p>{{shatterItem.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" fxFlex="30%">
+        <mat-form-field>
+            <mat-label>{{'Company Name' | translate}}</mat-label>
+            <input matInput required name="company" [(ngModel)]="companyName">
+        </mat-form-field>
+        <h3>Items</h3>
+        <div fxLayout="row">
+            <span fxFlex="70%">Product</span>
+            <span fxFlex="30%">Quantity</span>
+        </div>
+        <div fxLayout="row" *ngFor="let quoteItem of quoteList">
+            <span fxFlex="80%">{{quoteItem.name}}</span>
+            <span fxFlex="20%">{{quoteItem.quantity}}</span>
+        </div>
+        <button matButton (click)="sendInQuoteRequest()">Send Request</button>
+    </div>
+</div>

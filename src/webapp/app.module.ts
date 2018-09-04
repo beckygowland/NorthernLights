@@ -10,10 +10,18 @@ import { MaterialDesignModule } from './materialDesign.module';
 import { TreeModule } from 'angular-tree-component';
 import { ToastrModule } from 'ngx-toastr';
 
-import { AppComponent } from './modules/landingModule/landing.component';
+import { LandingComponent } from './modules/landingModule/landing.component';
+import { HomeComponent } from './modules/home/home.component';
+import { ProductsComponent } from './modules/products/products.component';
+import { RequestQuoteComponent } from './modules/contact/requestQuote/requestQuote.component';
+import { SignUpComponent } from './modules/contact/signup/signUp.component';
+import { ContactComponent } from './modules/contact/contact.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '../../node_modules/@angular/router';
 
 @NgModule({
-    bootstrap: [ AppComponent ],
+    bootstrap: [ LandingComponent ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -21,6 +29,7 @@ import { AppComponent } from './modules/landingModule/landing.component';
         FormsModule,
         HttpClientModule,
         FlexLayoutModule,
+        RouterModule,
         TreeModule,
         ToastrModule.forRoot(),
         TranslateModule.forRoot({
@@ -29,16 +38,22 @@ import { AppComponent } from './modules/landingModule/landing.component';
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        AppRoutingModule
     ],
-    declarations: [ AppComponent ],
+    declarations: [ 
+        LandingComponent,
+        HomeComponent,
+        ContactComponent, 
+        SignUpComponent,
+        RequestQuoteComponent,
+        ProductsComponent
+    ],
     entryComponents: [  ],
     providers: [  ],
 })
-export class AppModule {
-}
-// required for AOT compilation
+export class AppModule {}
+
 export function HttpLoaderFactory(http: HttpClient) {
-    
     return new TranslateHttpLoader(http);
 }

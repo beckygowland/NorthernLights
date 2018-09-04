@@ -3,6 +3,6 @@ import getFunc from './get'
 
 const router = new Router();
 
-router.get('/app', getFunc);
+router.get('/*', getFunc);
 
 export default router

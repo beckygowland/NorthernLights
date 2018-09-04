@@ -1,0 +1,18 @@
+<form #signupForm="ngForm" (ngSubmit)="registerNewCustomer()">
+    <input type="hidden" name="_csrf" [(ngModel)]="csrf" />
+    <div fxFlex="100%" fxFlex.gt-sm="50%" fxLayout="column">
+        <mat-form-field fxFlex="100%">
+            <mat-label>{{'Company Name' | translate}}</mat-label>
+            <input matInput required name="name" [(ngModel)]="name" autocomplete="organization-title">
+        </mat-form-field>
+        <mat-form-field fxFlex="100%">
+            <mat-label>{{'Email' | translate}}</mat-label>
+            <input matInput required name="email" [(ngModel)]="email" autocomplete="email">
+        </mat-form-field>
+        <mat-form-field fxFlex="100%">
+            <mat-label>{{'Phone Number' | translate}}</mat-label>
+            <input matInput required name="phone" [(ngModel)]="phone" autocomplete="tel">
+        </mat-form-field>
+        <button matButton>{{'Request Quote' | translate}}</button>
+    </div>
+</form>

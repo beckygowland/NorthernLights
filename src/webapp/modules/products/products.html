@@ -1,0 +1,25 @@
+<div fxLayout="row">
+    <div fxLayout="column" fxFlex="30%">
+        <h3>Categories</h3>
+        <span (click)="changeProduct('nutrient')">Advanced Nutrients</span>
+        <span (click)="changeProduct('shatter')">Shatterizers</span>
+    </div>
+    <div fxLayout="column" fxLayoutGap="30px"  fxLayoutAlign="center center" fxFlex="50%">
+        <h3 *ngIf="product === 'nutrient'">Products: Advanced Nutrients</h3>
+        <h3 *ngIf="product === 'shatter'">Products: Shatterizers</h3>
+        <div fxLayout="row wrap" *ngIf="product === 'nutrient'" fxLayoutGap="30px" fxLayoutAlign="start start">
+            <div fxLayout="column" *ngFor="let item of nutrientProducts" style="width:175px"> 
+                <img [src]="item.imageUrl" alt="logo" height="175" width="175">
+                <p>{{item.name}}</p>
+                <span>{{item.description}}</span>
+            </div>
+        </div>
+        <div fxLayout="row wrap" *ngIf="product === 'shatter'" fxLayoutGap="30px" fxLayoutAlign="start start">
+            <div fxLayout="column" *ngFor="let shatterItem of shatterProducts" style="width:175px"> 
+                <img [src]="shatterItem.imageUrl" alt="logo" height="175" width="175">
+                <p>{{shatterItem.name}}</p>
+                <span>{{shatterItem.description}}</span>
+            </div>
+        </div>
+    </div>
+</div>

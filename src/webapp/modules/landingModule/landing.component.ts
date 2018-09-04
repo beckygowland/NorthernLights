@@ -4,8 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
  @Component({
    selector: 'landing-page',
    templateUrl: './landing.html',
+   styleUrls: ['../../app.scss'],
+   encapsulation: ViewEncapsulation.None,
   })
-  export class AppComponent {
+  export class LandingComponent {
     language = 'en';
 
     constructor(private translate: TranslateService, private elementRef: ElementRef){
