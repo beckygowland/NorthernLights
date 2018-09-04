@@ -1,8 +1,8 @@
 <div fxLayout="row">
     <div fxLayout="column" fxFlex="20%">
         <h3>Categories</h3>
-        <span (click)="changeProduct('nutrient')">Advanced Nutrients</span>
-        <span (click)="changeProduct('shatter')">Shatterizers</span>
+        <span style="cursor:pointer; text-decoration: underline; text-decoration-color: white;" (click)="changeProduct('nutrient')">Advanced Nutrients</span>
+        <span style="cursor:pointer; text-decoration: underline; text-decoration-color: white;" (click)="changeProduct('shatter')">Shatterizers</span>
     </div>
     <div fxLayout="column" fxLayoutGap="30px"  fxLayoutAlign="center center" fxFlex="50%">
         <h3 *ngIf="product === 'nutrient'">Products: Advanced Nutrients</h3>
@@ -12,7 +12,7 @@
                     <p>{{item.name}}</p>
                     <mat-form-field fxFlex="100%">
                         <mat-label>{{'Quantity' | translate}}</mat-label>
-                        <input matInput type="number" name="quantity" [(ngModel)]="item.quantity" (input)="addToQuoteList(item)">
+                        <input matInput class="white-text" type="number" name="quantity" [(ngModel)]="item.quantity" (input)="addToQuoteList(item)">
                     </mat-form-field>
                     <span>{{item.description}}</span>
                 </div>
@@ -24,7 +24,7 @@
                 <p>{{shatterItem.name}}</p>
                 <mat-form-field fxFlex="100%">
                     <mat-label>{{'Quantity' | translate}}</mat-label>
-                    <input matInput name="quantity" type="number" [(ngModel)]="shatterItem.quantity">
+                    <input matInput name="quantity" class="white-text" type="number" [(ngModel)]="shatterItem.quantity">
                 </mat-form-field>
                 <p>{{shatterItem.description}}</p>
             </div>
